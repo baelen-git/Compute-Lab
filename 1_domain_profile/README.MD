@@ -31,7 +31,6 @@ isctl update fabric switchprofile name IMM-Domain-01-B --Action Deploy
 ```
 isctl update fabric switchprofile name IMM-Domain-01-A --Action Unassign
 isctl update fabric switchprofile name IMM-Domain-01-B --Action Unassign
-isctl delete fabric switchclusterprofile name IMM-Domain-01
 ```
 
 2. remove the config

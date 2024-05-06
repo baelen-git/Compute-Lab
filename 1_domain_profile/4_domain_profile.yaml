@@ -18,7 +18,7 @@ ClassId: fabric.SwitchProfile
 Name: IMM-Domain-01-B
 SwitchClusterProfile: MoRef[IMM-Troubleshooting\IMM-Domain-01]
 PolicyBucket:
-  - MoRef:fabric.EthNetworkPolicy[LAB-RESOURCES\IMM-VLANS-A]
+  - MoRef:fabric.EthNetworkPolicy[LAB-RESOURCES\IMM-VLANS-B]
   - MoRef:fabric.PortPolicy[LAB-RESOURCES\IMM-6465-ports]
   - MoRef:fabric.SystemQosPolicy[LAB-RESOURCES\IMM-QoS]
   - MoRef:networkconfig.Policy[LAB-RESOURCES\IMM-DNS]
