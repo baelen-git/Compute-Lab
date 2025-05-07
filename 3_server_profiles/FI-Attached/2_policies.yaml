@@ -1,7 +1,7 @@
 ---
 ClassId: storage.StoragePolicy
 Name: IMM-M.2
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 M2VirtualDrive:
   ClassId: storage.M2VirtualDriveConfig
@@ -12,7 +12,7 @@ UnusedDisksState: Jbod
 ---
 ClassId: vnic.EthNetworkPolicy
 Name: IMM-Trunk
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 VlanSettings:
   ClassId: vnic.VlanSettings
@@ -25,24 +25,25 @@ ClassId: vnic.EthIf
 Name: mgmt
 #settings
 FailoverEnabled: true
-EthAdapterPolicy: MoRef[LAB-RESOURCES\IMM-Linux]
-EthNetworkPolicy: MoRef[LAB-RESOURCES\IMM-Trunk]
-EthQosPolicy: MoRef[LAB-RESOURCES\IMM-QOS]
-FabricEthNetworkControlPolicy: MoRef[LAB-RESOURCES\IMM-LLDP]
+EthAdapterPolicy: MoRef[IMM-LAB-RESOURCES\IMM-Linux]
+EthNetworkPolicy: MoRef[IMM-LAB-RESOURCES\IMM-Trunk]
+EthQosPolicy: MoRef[IMM-LAB-RESOURCES\IMM-QOS]
+FabricEthNetworkControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LLDP]
 FabricEthNetworkGroupPolicy: 
-  - MoRef[LAB-RESOURCES\IMM-MGMT]
-LanConnectivityPolicy: MoRef[LAB-RESOURCES\IMM-LAN]
-MacPool: MoRef[LAB-RESOURCES\IMM-MAC]
+  - MoRef[IMM-LAB-RESOURCES\IMM-MGMT]
+LanConnectivityPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LAN]
+MacPool: MoRef[IMM-LAB-RESOURCES\IMM-MAC]
 MacAddressType: "POOL"
 Order: 0
 Placement:
   ClassId: vnic.PlacementSettings
   AutoSlotId: true
+  AutoPciLink: true
   SwitchId: A
 ---
 ClassId: boot.PrecisionPolicy
 Name: IMM-Boot
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 BootDevices:
 - Bootloader:
@@ -57,39 +58,41 @@ BootDevices:
 ---
 ClassId: ipmioverlan.Policy
 Name: IMM-IPMI-off
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 Enabled: false
 ---
 ClassId: kvm.Policy
 Name: IMM-TunneledKVM
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 TunneledKvmEnabled: true
 ---
 ClassId: bios.Policy
 Name: IMM-BIOS
-Organization: LAB-RESOURCES
-#settings are empty because the defaults suffice.
+Organization: IMM-LAB-RESOURCES
+#settings 
+ConsoleRedirection: com-0
 ---
 ClassId: vnic.LanConnectivityPolicy
 Name: IMM-LAN
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 TargetPlatform: FIAttached
+PlacementMode: auto
 ---
 ClassId: fabric.EthNetworkGroupPolicy
 Name: IMM-MGMT
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 VlanSettings:
   ClassId: fabric.VlanSettings
   AllowedVlans: "70"
   QinqEnabled: false
-  NativeVlan: 1
+  NativeVlan: 70
 ---
 ClassId: fabric.EthNetworkControlPolicy
 Name: IMM-LLDP
-Organization: LAB-RESOURCES 
+Organization: IMM-LAB-RESOURCES 
 #settings
 CdpEnabled: true
 ForgeMac: allow
@@ -101,7 +104,7 @@ MacRegistrationMode: allVlans
 UplinkFailAction: linkDown
 ---
 ClassId: iam.EndPointUserPolicy
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 Name: IMM-LocalAdmin
 #settings
 PasswordProperties:
@@ -115,7 +118,7 @@ PasswordProperties:
   PasswordHistory: 0
 ---
 ClassId: iam.EndPointUser
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 Name: admin
 ---
 ClassId: iam.EndPointUserRole
@@ -123,13 +126,13 @@ ClassId: iam.EndPointUserRole
 Enabled: true
 EndPointRole: 
   - MoRef:iam.EndPointRole[$filter:Type eq 'IMC' and Name eq 'admin']
-EndPointUser: MoRef[LAB-RESOURCES\admin]
-EndPointUserPolicy: MoRef[LAB-RESOURCES\IMM-LocalAdmin]
+EndPointUser: MoRef[IMM-LAB-RESOURCES\admin]
+EndPointUserPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LocalAdmin]
 Password: UCSX@Cisco123
 ---
 ClassId: firmware.Policy
 Name: IMM-Firmware
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 ModelBundleCombo:
 - BundleVersion: 5.2(0.230092)
@@ -140,26 +143,28 @@ TargetPlatform: FIAttached
 ---
 ClassId: vmedia.Policy
 Name: IMM-vMedia-Empty
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 Enabled: true
 Encryption: true
 LowPowerUsb: true
 Mappings: []
 ---
-ClassId: vnic.EthQosPolicy
-Name: IMM-QOS
-Organization: LAB-RESOURCES
-#settings are empty because the defaults suffice.
----
 ClassId: sol.Policy
 Name: IMM-SOL
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
+#settings 
+BaudRate: 115200
+ComPort: com0
+---
+ClassId: vnic.EthQosPolicy
+Name: IMM-QOS
+Organization: IMM-LAB-RESOURCES
 #settings are empty because the defaults suffice.
 ---
 ClassId: vnic.EthAdapterPolicy
 Name: IMM-Linux
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 AdvancedFilter: false
 ArfsSettings:

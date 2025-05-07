@@ -9,21 +9,10 @@ Make sure you have [isctl](https://github.com/cgascoig/isctl) installed and conf
 3. Apply all the config
 ```
 isctl apply -f .
-```
-
-4. Assign the Domain Profile
-Through the UI OR 
-<!-- 
-isctl update fabric switchprofile name IMM-Domain-01-A --AssignedSwitch 662687576176753801f3abc3
-isctl update fabric switchprofile name IMM-Domain-01-B --AssignedSwitch 662687576176753801f3abda -->
-isctl update fabric switchprofile name IMM-Domain-01-A --AssignedSwitch <switch-moid>
-isctl update fabric switchprofile name IMM-Domain-01-B --AssignedSwitch <switch-moid>
-
-
-5. Deploy the Domain Profiles
-```
 isctl update fabric switchprofile name IMM-Domain-01-A --Action Deploy
 isctl update fabric switchprofile name IMM-Domain-01-B --Action Deploy
+isctl update fabric switchprofile name IMM-Domain-02-A --Action Deploy
+isctl update fabric switchprofile name IMM-Domain-02-B --Action Deploy
 ```
 
 ## Clean up
@@ -31,6 +20,8 @@ isctl update fabric switchprofile name IMM-Domain-01-B --Action Deploy
 ```
 isctl update fabric switchprofile name IMM-Domain-01-A --Action Unassign
 isctl update fabric switchprofile name IMM-Domain-01-B --Action Unassign
+isctl update fabric switchprofile name IMM-Domain-02-A --Action Unassign
+isctl update fabric switchprofile name IMM-Domain-02-B --Action Unassign
 ```
 
 2. remove the config

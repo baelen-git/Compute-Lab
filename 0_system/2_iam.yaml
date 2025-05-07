@@ -1,0 +1,27 @@
+ClassId: iam.Permission
+Name: IMM-Lab-User
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[IMM-Lab-User]
+Resource: MoRef:organization.Organization[IMM-Troubleshooting]
+Roles: 
+- MoRef[$filter:Name eq 'Server Administrator']
+- MoRef[$filter:Name eq 'UCS Domain Administrator']
+- MoRef[$filter:Name eq 'Workflow Designer']
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[IMM-Lab-User]
+Resource: MoRef:organization.Organization[IMM-LAB-RESOURCES]
+Roles: 
+- MoRef[Read-Only]
+---
+ClassId: iam.UserGroup
+Name: intersight-guests
+Idp: MoRef[TME-ADFS]
+Permissions: 
+- MoRef[IMM-Lab-User]
+---
+ClassId: iam.Qualifier
+Usergroup: MoRef[intersight-guests]
+Value:
+- DevNetRole

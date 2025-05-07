@@ -1,9 +1,9 @@
 ClassId: chassis.Profile
-Name: IMM-Domain-01-Chassis-01
+Name: IMM-Domain-02-Chassis-01
 Organization: IMM-Troubleshooting
 #Change the name below to the name of your chassis
-AssignedChassis: MoRef[RTP91-FI6454-01-1]
-#Action: Deploy
+AssignedChassis: MoRef[RTP91-FI6454-02-1]
+# Action: Deploy
 PolicyBucket:
   - MoRef:access.Policy[IMM-LAB-RESOURCES\IMM-IMC-OOB]
   - MoRef:power.Policy[IMM-LAB-RESOURCES\IMM-Power]

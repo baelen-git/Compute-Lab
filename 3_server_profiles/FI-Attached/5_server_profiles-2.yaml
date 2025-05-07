@@ -2,42 +2,42 @@ ClassId: bulk.MoCloner
 Sources: 
   - MoRef:server.ProfileTemplate[IMM-LAB-RESOURCES\IMM-RHEL]
 Targets:
-  - Name: IMM-RHEL-01
+  - Name: IMM-RHEL-09
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
     ServerAssignmentMode: Pool
-  - Name: IMM-RHEL-02
+  - Name: IMM-RHEL-10
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
     ServerAssignmentMode: Pool
-  - Name: IMM-RHEL-03
+  - Name: IMM-RHEL-11
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
     ServerAssignmentMode: Pool
-  - Name: IMM-RHEL-04
+  - Name: IMM-RHEL-12
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
     ServerAssignmentMode: Pool
-  - Name: IMM-RHEL-05
+  - Name: IMM-RHEL-13
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
     ServerAssignmentMode: Pool
-  - Name: IMM-RHEL-06
+  - Name: IMM-RHEL-14
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
     ServerAssignmentMode: Pool
-  - Name: IMM-RHEL-07
+  - Name: IMM-RHEL-15
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]
     ServerAssignmentMode: Pool
-  - Name: IMM-RHEL-08
+  - Name: IMM-RHEL-16
     ObjectType: server.Profile
     Organization: MoRef:organization.Organization[IMM-Troubleshooting]
     ServerPool: MoRef:resourcepool.Pool[IMM-Troubleshooting\IMM-ServerPool]

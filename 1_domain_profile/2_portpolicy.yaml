@@ -1,12 +1,12 @@
 ClassId: fabric.PortPolicy
 Name: IMM-6465-ports
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 DeviceModel: UCS-FI-6454
 ---
 ClassId: fabric.FlowControlPolicy
 Name: IMM-FlowControl
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 PriorityFlowControlMode: auto
 ReceiveDirection: Disabled
@@ -14,18 +14,25 @@ SendDirection: Disabled
 ---
 ClassId: fabric.LinkControlPolicy
 Name: IMM-LinkControl
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 UdldSettings:
   ClassId: fabric.UdldSettings
   AdminState: Enabled
   Mode: normal
 ---
+ClassId: fabric.LinkAggregationPolicy
+Name: IMM-LinkAggr
+Organization: IMM-LAB-RESOURCES
+#settings
+LacpRate: normal
+SuspendIndividual: false
+---
 # Only uncomment when you need Fibre Channel Ports
 # Manually delete the PortMode resource based on moid when you want to reverse back to Ethernet
 ClassId: fabric.PortMode
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 PortIdStart: 1
 PortIdEnd: 8
 SlotId: 1
@@ -35,37 +42,57 @@ SlotId: 1
 
 # ClassId: fabric.PortMode
 # #settings
-# PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+# PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 # CustomMode: BreakoutEthernet25G
 # PortIdStart: 49
 # PortIdEnd: 50
 # SlotId: 1
 ---
-ClassId: fabric.UplinkRole
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
-#settings
-SlotId: 1
-PortId: 53
-#EthNetworkGroupPolicy: [] #only needed when doing disjoint layer 2
-FlowControlPolicy: MoRef[LAB-RESOURCES\IMM-FlowControl]
-LinkControlPolicy: MoRef[LAB-RESOURCES\IMM-LinkControl]
-Fec: Auto
+ClassId: fabric.UplinkPcRole
 AdminSpeed: Auto
----
-ClassId: fabric.UplinkRole
-#settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
-SlotId: 1
-PortId: 54
-#EthNetworkGroupPolicy: [] #only needed when doing disjoint layer 2
-FlowControlPolicy: MoRef[LAB-RESOURCES\IMM-FlowControl]
-LinkControlPolicy: MoRef[LAB-RESOURCES\IMM-LinkControl]
-Fec: Auto
-AdminSpeed: Auto
+EthNetworkGroupPolicy: []
+FlowControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-FlowControl]
+LinkAggregationPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LinkAggr]
+LinkControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LinkControl]
+PcId: 100
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
+Ports:
+- AggregatePortId: 0
+  ClassId: fabric.PortIdentifier
+  PortId: 53
+  SlotId: 1
+- AggregatePortId: 0
+  ClassId: fabric.PortIdentifier
+  PortId: 54
+  SlotId: 1
+# ---
+# USE ONLY WHEN DOING UPLINKS WITHOUT PORTCHANNELS - NOT BEST PRACTISE
+# ClassId: fabric.UplinkRole
+# PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
+# #settings
+# SlotId: 1
+# PortId: 53
+# #EthNetworkGroupPolicy: [] #only needed when doing disjoint layer 2
+# FlowControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-FlowControl]
+# LinkControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LinkControl]
+# Fec: Auto
+# AdminSpeed: Auto
+# ---
+# USE ONLY WHEN DOING UPLINKS WITHOUT PORTCHANNELS - NOT BEST PRACTISE
+# ClassId: fabric.UplinkRole
+# #settings
+# PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
+# SlotId: 1
+# PortId: 54
+# #EthNetworkGroupPolicy: [] #only needed when doing disjoint layer 2
+# FlowControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-FlowControl]
+# LinkControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LinkControl]
+# Fec: Auto
+# AdminSpeed: Auto
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 9
@@ -73,7 +100,7 @@ SlotId: 1
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 10
@@ -81,7 +108,7 @@ SlotId: 1
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 11
@@ -89,7 +116,7 @@ SlotId: 1
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 12
@@ -97,7 +124,7 @@ SlotId: 1
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 13
@@ -105,7 +132,7 @@ SlotId: 1
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 14
@@ -113,7 +140,7 @@ SlotId: 1
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 15
@@ -121,7 +148,7 @@ SlotId: 1
 ---
 ClassId: fabric.ServerRole
 #settings
-PortPolicy: MoRef[LAB-RESOURCES\IMM-6465-ports]
+PortPolicy: MoRef[IMM-LAB-RESOURCES\IMM-6465-ports]
 AutoNegotiationDisabled: false
 Fec: Auto
 PortId: 16

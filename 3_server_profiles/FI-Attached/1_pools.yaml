@@ -1,6 +1,6 @@
 ClassId: macpool.Pool
 Name: IMM-MAC
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 MacBlocks:
 - ClassId: macpool.Block
@@ -9,7 +9,7 @@ MacBlocks:
 ---
 ClassId: uuidpool.Pool
 Name: IMM-UUID
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 Prefix: 00000000-0010-0000
 UuidSuffixBlocks:
 - ClassId: uuidpool.UuidBlock
@@ -34,13 +34,13 @@ Selectors:
 #---
 # ClassId: ippool.Pool
 # Name: IMM-IMC-POOL
-# Organization: LAB-RESOURCES
+# Organization: IMM-LAB-RESOURCES
 # IpV4Config:
 #   ClassId: ippool.IpV4Config
 #   Gateway: 172.20.70.1
 #   Netmask: 255.255.255.0
-#   PrimaryDns: 172.20.70.60
-#   SecondaryDns: 172.20.70.59
+#   PrimaryDns: 172.20.10.60
+#   SecondaryDns: 172.20.10.59
 # IpV4Blocks:
 # - ClassId: ippool.IpV4Block
 #   From: 172.20.70.100

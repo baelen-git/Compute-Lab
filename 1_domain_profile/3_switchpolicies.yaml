@@ -1,7 +1,7 @@
 ---
 ClassId: ntp.Policy
 Name: IMM-NTP
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 Enabled: true
 NtpServers:
@@ -10,14 +10,14 @@ Timezone: America/New_York
 ---
 ClassId: networkconfig.Policy
 Name: IMM-DNS
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 PreferredIpv4dnsServer: 172.20.10.60
 AlternateIpv4dnsServer: 172.20.10.59
 ---
 ClassId: fabric.SwitchControlPolicy
 Name: IMM-SwitchControl
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 EthernetSwitchingMode: end-host
 FabricPcVhbaReset: Enabled
@@ -35,7 +35,7 @@ VlanPortOptimizationEnabled: false
 ---
 ClassId: snmp.Policy
 Name: IMM-SNMP
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 CommunityAccess: Disabled
 AccessCommunityString: ""
@@ -52,5 +52,5 @@ V3Enabled: true
 ---
 ClassId: fabric.SystemQosPolicy
 Name: IMM-QoS
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings

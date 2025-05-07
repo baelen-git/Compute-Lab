@@ -1,14 +1,10 @@
 ClassId: fabric.EthNetworkPolicy
-Name: IMM-VLANS-A
-Organization: LAB-RESOURCES
----
-ClassId: fabric.EthNetworkPolicy
-Name: IMM-VLANS-B
-Organization: LAB-RESOURCES
+Name: IMM-VLANS
+Organization: IMM-Troubleshooting
 ---
 ClassId: fabric.MulticastPolicy
 Name: IMM-Multicast
-Organization: LAB-RESOURCES
+Organization: IMM-LAB-RESOURCES
 #settings
 QuerierIpAddress: ""
 QuerierIpAddressPeer: ""
@@ -17,23 +13,13 @@ SnoopingState: Enabled
 SrcIpProxy: Enabled
 ---
 ClassId: fabric.Vlan
-Name: VLAN_70_A
+Name: VLAN_70
 #settings
-EthNetworkPolicy: MoRef[LAB-RESOURCES\IMM-VLANS-A]
-MulticastPolicy: MoRef[LAB-RESOURCES\IMM-Multicast]
+EthNetworkPolicy: MoRef[IMM-Troubleshooting\IMM-VLANS]
+MulticastPolicy: MoRef[IMM-LAB-RESOURCES\IMM-Multicast]
 VlanId: 70
 AutoAllowOnUplinks: true
 IsNative: false
 PrimaryVlanId: 0
 SharingType: None
----
-ClassId: fabric.Vlan
-Name: VLAN_70_B
-#settings
-EthNetworkPolicy: MoRef[LAB-RESOURCES\IMM-VLANS-B]
-MulticastPolicy: MoRef[LAB-RESOURCES\IMM-Multicast]
-VlanId: 70
-AutoAllowOnUplinks: true
-IsNative: false
-PrimaryVlanId: 0
-SharingType: None
+
