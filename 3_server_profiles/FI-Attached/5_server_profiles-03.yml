@@ -1,0 +1,67 @@
+---
+ClassId: resourcepool.QualificationPolicy
+Name: IMM-All-X210c-M6
+Organization: LTRCOM-2000
+#settings
+Qualifiers:
+- ObjectType: resource.BladeQualifier
+  Pids:
+  - UCSX-210C-M6
+- ObjectType: resource.GpuQualifier
+  GpuEvaluationType: Unspecified
+---
+ClassId: resourcepool.Pool
+Name: IMM-ServerPool
+Organization: LTRCOM-2000
+#settings
+ResourcePoolParameters:
+  ManagementMode: Intersight
+  ObjectType: resourcepool.ServerPoolParameters
+ResourceType: Server
+QualificationPolicies:
+- MoRef[LTRCOM-2000\IMM-All-X210c-M6]
+---
+ClassId: bulk.MoCloner
+Sources: 
+  - MoRef:server.ProfileTemplate[LAB-RESOURCES\IMM-RHEL]
+Targets:
+  - Name: IMM-RHEL-17
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-18
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-19
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-20
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-21
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-22
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-23
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-24
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2000]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2000\IMM-ServerPool]
+    ServerAssignmentMode: Pool

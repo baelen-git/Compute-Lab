@@ -1,7 +1,7 @@
 ClassId: ippool.Pool
 Description: ""
-Name: IMM-IMC-POOL
-Organization: IMM-LAB-RESOURCES
+Name: IMM-Chassis-Pool
+Organization: LAB-RESOURCES
 IpV4Config:
   ClassId: ippool.IpV4Config
   Gateway: 172.20.70.1
@@ -10,8 +10,5 @@ IpV4Config:
   SecondaryDns: 172.20.10.59
 IpV4Blocks:
 - ClassId: ippool.IpV4Block
-  From: 172.20.70.100
-  To: 172.20.70.109
-- ClassId: ippool.IpV4Block
-  From: 172.20.70.110
-  To: 172.20.70.119
+  From: 172.20.70.140
+  To: 172.20.70.148

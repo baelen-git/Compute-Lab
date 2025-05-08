@@ -1,0 +1,10 @@
+ClassId: chassis.Profile
+Name: IMM-Domain-01-Chassis-01
+Organization: LTRCOM-2020
+#Change the name below to the name of your chassis
+AssignedChassis: MoRef[RTP91-FI6454-01-1]
+PolicyBucket:
+  - MoRef:access.Policy[LAB-RESOURCES\IMM-Chassis-IMC-Access]
+  - MoRef:power.Policy[LAB-RESOURCES\IMM-Power]
+  - MoRef:snmp.Policy[LAB-RESOURCES\IMM-SNMP]
+  - MoRef:thermal.Policy[LAB-RESOURCES\IMM-Thermal]

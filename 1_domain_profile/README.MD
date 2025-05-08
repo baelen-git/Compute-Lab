@@ -13,6 +13,10 @@ isctl update fabric switchprofile name IMM-Domain-01-A --Action Deploy
 isctl update fabric switchprofile name IMM-Domain-01-B --Action Deploy
 isctl update fabric switchprofile name IMM-Domain-02-A --Action Deploy
 isctl update fabric switchprofile name IMM-Domain-02-B --Action Deploy
+
+#wait for workflows to finish
+echo -n "Waiting for workflows to finish..."
+while (($(isctl get workflow workflowinfo --filter "WorkflowStatus eq 'InProgress'" --count) != 0)); do sleep 1 ; echo -n "."; done
 ```
 
 ## Clean up
@@ -28,4 +32,9 @@ isctl update fabric switchprofile name IMM-Domain-02-B --Action Unassign
 To clean up just rust the `isctl apply` commands but add a `-d` at the end.
 ```
 isctl apply -f . -d
+```
+
+When you get an error that the flowcontrol policy cannot be removed because of the portpolicy, just remove the port policy manualy and run the above command again.
+```
+isctl delete fabric portpolicy name IMM-6465-ports
 ```

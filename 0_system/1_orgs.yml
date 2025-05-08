@@ -1,0 +1,58 @@
+ClassId: resource.Group
+Name: RTP91-FI6454-01
+#settings
+Selectors:
+- ClassId: resource.Selector
+  Selector: /api/v1/asset/DeviceRegistrations?$filter=Moid in('662687566f72613901ac122e')
+---
+ClassId: resource.Group
+Name: RTP91-FI6454-02
+#settings
+Selectors:
+- ClassId: resource.Selector
+  Selector: /api/v1/asset/DeviceRegistrations?$filter=Moid in('661929a26f72613901c58d5a')
+---
+ClassId: resource.Group
+Name: RTP91-FI6454-04
+#settings
+Selectors:
+- ClassId: resource.Selector
+  Selector: /api/v1/asset/DeviceRegistrations?$filter=Moid in('6630dacd6f726139014caace')
+---
+ClassId: resource.Group
+Name: RTP91-FI6454-05
+#settings
+Selectors:
+- ClassId: resource.Selector
+  Selector: /api/v1/asset/DeviceRegistrations?$filter=Moid in('6765852f6f726139017c726c')
+---
+ClassId: organization.Organization
+Name: LTRCOM-2020
+ResourceGroups:
+- MoRef[RTP91-FI6454-01]
+---
+ClassId: organization.Organization
+Name: LTRCOM-2488
+ResourceGroups:
+- MoRef[RTP91-FI6454-02]
+---
+ClassId: organization.Organization
+Name: LTRCOM-2000
+ResourceGroups:
+- MoRef[RTP91-FI6454-04]
+---
+ClassId: organization.Organization
+Description: Source of truth for all IMM Labs, will be shared by the actual Lab organisations
+Name: LAB-RESOURCES
+---
+ClassId: iam.SharingRule
+SharedResource: MoRef:organization.Organization[LAB-RESOURCES]
+SharedWithResource: MoRef:organization.Organization[LTRCOM-2020]
+---
+ClassId: iam.SharingRule
+SharedResource: MoRef:organization.Organization[LAB-RESOURCES]
+SharedWithResource: MoRef:organization.Organization[LTRCOM-2000]
+---
+ClassId: iam.SharingRule
+SharedResource: MoRef:organization.Organization[LAB-RESOURCES]
+SharedWithResource: MoRef:organization.Organization[LTRCOM-2488]

@@ -1,7 +1,21 @@
+ClassId: access.Policy
+Name: IMM-Server-IMC-Access
+Organization: LAB-RESOURCES
+#settings
+AddressType:
+  ClassId: access.AddressType
+  EnableIpV4: true
+  EnableIpV6: false
+ConfigurationType:
+  ClassId: access.ConfigurationType
+  ConfigureInband: true
+  ConfigureOutOfBand: false
+InbandVlan: 70
+InbandIpPool: MoRef[LAB-RESOURCES\IMM-Server-IMC-Pool]
 ---
 ClassId: storage.StoragePolicy
 Name: IMM-M.2
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 M2VirtualDrive:
   ClassId: storage.M2VirtualDriveConfig
@@ -12,7 +26,7 @@ UnusedDisksState: Jbod
 ---
 ClassId: vnic.EthNetworkPolicy
 Name: IMM-Trunk
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 VlanSettings:
   ClassId: vnic.VlanSettings
@@ -25,14 +39,14 @@ ClassId: vnic.EthIf
 Name: mgmt
 #settings
 FailoverEnabled: true
-EthAdapterPolicy: MoRef[IMM-LAB-RESOURCES\IMM-Linux]
-EthNetworkPolicy: MoRef[IMM-LAB-RESOURCES\IMM-Trunk]
-EthQosPolicy: MoRef[IMM-LAB-RESOURCES\IMM-QOS]
-FabricEthNetworkControlPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LLDP]
+EthAdapterPolicy: MoRef[LAB-RESOURCES\IMM-Linux]
+EthNetworkPolicy: MoRef[LAB-RESOURCES\IMM-Trunk]
+EthQosPolicy: MoRef[LAB-RESOURCES\IMM-QOS]
+FabricEthNetworkControlPolicy: MoRef[LAB-RESOURCES\IMM-LLDP]
 FabricEthNetworkGroupPolicy: 
-  - MoRef[IMM-LAB-RESOURCES\IMM-MGMT]
-LanConnectivityPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LAN]
-MacPool: MoRef[IMM-LAB-RESOURCES\IMM-MAC]
+  - MoRef[LAB-RESOURCES\IMM-MGMT]
+LanConnectivityPolicy: MoRef[LAB-RESOURCES\IMM-LAN]
+MacPool: MoRef[LAB-RESOURCES\IMM-MAC]
 MacAddressType: "POOL"
 Order: 0
 Placement:
@@ -43,7 +57,7 @@ Placement:
 ---
 ClassId: boot.PrecisionPolicy
 Name: IMM-Boot
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 BootDevices:
 - Bootloader:
@@ -58,32 +72,32 @@ BootDevices:
 ---
 ClassId: ipmioverlan.Policy
 Name: IMM-IPMI-off
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 Enabled: false
 ---
 ClassId: kvm.Policy
 Name: IMM-TunneledKVM
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 TunneledKvmEnabled: true
 ---
 ClassId: bios.Policy
 Name: IMM-BIOS
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings 
 ConsoleRedirection: com-0
 ---
 ClassId: vnic.LanConnectivityPolicy
 Name: IMM-LAN
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 TargetPlatform: FIAttached
 PlacementMode: auto
 ---
 ClassId: fabric.EthNetworkGroupPolicy
 Name: IMM-MGMT
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 VlanSettings:
   ClassId: fabric.VlanSettings
   AllowedVlans: "70"
@@ -92,7 +106,7 @@ VlanSettings:
 ---
 ClassId: fabric.EthNetworkControlPolicy
 Name: IMM-LLDP
-Organization: IMM-LAB-RESOURCES 
+Organization: LAB-RESOURCES 
 #settings
 CdpEnabled: true
 ForgeMac: allow
@@ -104,7 +118,7 @@ MacRegistrationMode: allVlans
 UplinkFailAction: linkDown
 ---
 ClassId: iam.EndPointUserPolicy
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 Name: IMM-LocalAdmin
 #settings
 PasswordProperties:
@@ -118,7 +132,7 @@ PasswordProperties:
   PasswordHistory: 0
 ---
 ClassId: iam.EndPointUser
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 Name: admin
 ---
 ClassId: iam.EndPointUserRole
@@ -126,16 +140,16 @@ ClassId: iam.EndPointUserRole
 Enabled: true
 EndPointRole: 
   - MoRef:iam.EndPointRole[$filter:Type eq 'IMC' and Name eq 'admin']
-EndPointUser: MoRef[IMM-LAB-RESOURCES\admin]
-EndPointUserPolicy: MoRef[IMM-LAB-RESOURCES\IMM-LocalAdmin]
+EndPointUser: MoRef[LAB-RESOURCES\admin]
+EndPointUserPolicy: MoRef[LAB-RESOURCES\IMM-LocalAdmin]
 Password: UCSX@Cisco123
 ---
 ClassId: firmware.Policy
 Name: IMM-Firmware
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 ModelBundleCombo:
-- BundleVersion: 5.2(0.230092)
+- BundleVersion: 5.3(0.250001)
   ClassId: firmware.ModelBundleVersion
   ModelFamily: UCSX-210C-M6
   ObjectType: firmware.ModelBundleVersion
@@ -143,7 +157,7 @@ TargetPlatform: FIAttached
 ---
 ClassId: vmedia.Policy
 Name: IMM-vMedia-Empty
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 Enabled: true
 Encryption: true
@@ -152,19 +166,19 @@ Mappings: []
 ---
 ClassId: sol.Policy
 Name: IMM-SOL
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings 
 BaudRate: 115200
 ComPort: com0
 ---
 ClassId: vnic.EthQosPolicy
 Name: IMM-QOS
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings are empty because the defaults suffice.
 ---
 ClassId: vnic.EthAdapterPolicy
 Name: IMM-Linux
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 AdvancedFilter: false
 ArfsSettings:

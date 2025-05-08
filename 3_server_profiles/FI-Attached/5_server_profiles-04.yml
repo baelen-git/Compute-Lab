@@ -1,0 +1,44 @@
+ClassId: bulk.MoCloner
+Sources: 
+  - MoRef:server.ProfileTemplate[LAB-RESOURCES\IMM-RHEL]
+Targets:
+  - Name: IMM-RHEL-25
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-26
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-27
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-28
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-29
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-30
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-31
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool
+  - Name: IMM-RHEL-32
+    ObjectType: server.Profile
+    Organization: MoRef:organization.Organization[LTRCOM-2020]
+    ServerPool: MoRef:resourcepool.Pool[LTRCOM-2020\IMM-ServerPool]
+    ServerAssignmentMode: Pool

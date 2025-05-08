@@ -1,10 +1,10 @@
 ClassId: fabric.EthNetworkPolicy
 Name: IMM-VLANS
-Organization: IMM-Troubleshooting
+Organization: LAB-RESOURCES
 ---
 ClassId: fabric.MulticastPolicy
 Name: IMM-Multicast
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 QuerierIpAddress: ""
 QuerierIpAddressPeer: ""
@@ -15,8 +15,8 @@ SrcIpProxy: Enabled
 ClassId: fabric.Vlan
 Name: VLAN_70
 #settings
-EthNetworkPolicy: MoRef[IMM-Troubleshooting\IMM-VLANS]
-MulticastPolicy: MoRef[IMM-LAB-RESOURCES\IMM-Multicast]
+EthNetworkPolicy: MoRef[LAB-RESOURCES\IMM-VLANS]
+MulticastPolicy: MoRef[LAB-RESOURCES\IMM-Multicast]
 VlanId: 70
 AutoAllowOnUplinks: true
 IsNative: false

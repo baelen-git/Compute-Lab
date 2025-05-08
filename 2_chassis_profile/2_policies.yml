@@ -1,6 +1,6 @@
 ClassId: access.Policy
-Name: IMM-IMC-OOB
-Organization: IMM-LAB-RESOURCES
+Name: IMM-Chassis-IMC-Access
+Organization: LAB-RESOURCES
 #settings
 AddressType:
   ClassId: access.AddressType
@@ -8,13 +8,14 @@ AddressType:
   EnableIpV6: false
 ConfigurationType:
   ClassId: access.ConfigurationType
-  ConfigureInband: false
-  ConfigureOutOfBand: true
-OutOfBandIpPool: MoRef[IMM-LAB-RESOURCES\IMM-IMC-POOL]
+  ConfigureInband: true
+  ConfigureOutOfBand: false
+InbandVlan: 70
+InbandIpPool: MoRef[LAB-RESOURCES\IMM-Chassis-Pool]
 ---
 ClassId: power.Policy
 Name: IMM-Power
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 AllocatedBudget: 0
 DynamicRebalancing: Enabled
@@ -27,6 +28,6 @@ RedundancyMode: Grid
 ---
 ClassId: thermal.Policy
 Name: IMM-Thermal
-Organization: IMM-LAB-RESOURCES
+Organization: LAB-RESOURCES
 #settings
 FanControlMode: Balanced

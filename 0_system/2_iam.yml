@@ -1,0 +1,63 @@
+ClassId: iam.Permission
+Name: LTRCOM-2020
+---
+ClassId: iam.Permission
+Name: LTRCOM-2488
+---
+ClassId: iam.Permission
+Name: LTRCOM-2000
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[LTRCOM-2020]
+Resource: MoRef:organization.Organization[LTRCOM-2020]
+Roles: 
+- MoRef[$filter:Name eq 'Server Administrator']
+- MoRef[$filter:Name eq 'UCS Domain Administrator']
+- MoRef[$filter:Name eq 'Workflow Designer']
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[LTRCOM-2020]
+Resource: MoRef:organization.Organization[LAB-RESOURCES]
+Roles: 
+- MoRef[Read-Only]
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[LTRCOM-2488]
+Resource: MoRef:organization.Organization[LTRCOM-2488]
+Roles: 
+- MoRef[$filter:Name eq 'Server Administrator']
+- MoRef[$filter:Name eq 'UCS Domain Administrator']
+- MoRef[$filter:Name eq 'Workflow Designer']
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[LTRCOM-2488]
+Resource: MoRef:organization.Organization[LAB-RESOURCES]
+Roles: 
+- MoRef[Read-Only]
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[LTRCOM-2000]
+Resource: MoRef:organization.Organization[LTRCOM-2000]
+Roles: 
+- MoRef[$filter:Name eq 'Server Administrator']
+- MoRef[$filter:Name eq 'UCS Domain Administrator']
+- MoRef[$filter:Name eq 'Workflow Designer']
+---
+ClassId: iam.ResourceRoles
+Permission: MoRef[LTRCOM-2000]
+Resource: MoRef:organization.Organization[LAB-RESOURCES]
+Roles: 
+- MoRef[Read-Only]
+---
+ClassId: iam.UserGroup
+Name: intersight-guests
+Idp: MoRef[TME-ADFS]
+Permissions: 
+- MoRef[LTRCOM-2020]
+- MoRef[LTRCOM-2488]
+- MoRef[LTRCOM-2000]
+---
+ClassId: iam.Qualifier
+Usergroup: MoRef[intersight-guests]
+Value:
+- DevNetRole
